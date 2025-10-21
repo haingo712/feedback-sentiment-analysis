@@ -14,11 +14,10 @@ def load_model():
     if vectorizer is None or model is None:
         vectorizer = joblib.load("models/vectorizer.joblib")
         model = joblib.load("models/logistic_regression.joblib")
-        print("Model loaded lazily!")
+        print("Model loaded successfully!")
 
 
 def predict_sentiments(messages: list[str]):
-    load_model()
     clean_msgs = [clean_message(m) for m in messages]
     X = vectorizer.transform(clean_msgs)
 
